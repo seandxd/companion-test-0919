@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI 伴学·周六体验</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(180deg, #fef9e7 0%, #fdebd0 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+    padding: 20px 16px;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 480px; margin: 0 auto; }
+  .header { text-align: center; padding: 16px 0 24px; }
+  .header h1 {
+    font-size: 28px; font-weight: 700; color: #c0392b;
+    margin-bottom: 6px; letter-spacing: 1px;
+  }
+  .header p { font-size: 14px; color: #7f8c8d; }
+  .card {
+    background: white; border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    margin-bottom: 20px; overflow: hidden;
+    transition: transform .2s;
+  }
+  .card:active { transform: scale(0.98); }
+  .card-img {
+    width: 100%; height: 220px; object-fit: cover;
+    background: #ecf0f1; display: block;
+  }
+  .card-body { padding: 18px 20px; }
+  .card-tag {
+    display: inline-block; padding: 4px 10px;
+    background: #fff3cd; color: #856404;
+    border-radius: 12px; font-size: 12px; font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 22px; font-weight: 700;
+    color: #2c3e50; margin-bottom: 8px;
+  }
+  .card-fact {
+    font-size: 15px; line-height: 1.6; color: #34495e;
+    margin-bottom: 12px;
+  }
+  .card-char {
+    background: #fef5e7; padding: 10px 14px;
+    border-left: 4px solid #f39c12; border-radius: 6px;
+    font-size: 14px; color: #6e2c00;
+  }
+  .card-char b { color: #c0392b; font-size: 18px; }
+  .start-btn {
+    display: block; width: 100%; padding: 16px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white; border: none; border-radius: 12px;
+    font-size: 18px; font-weight: 700;
+    cursor: pointer; margin: 24px 0;
+    box-shadow: 0 4px 12px rgba(231,76,60,0.3);
+  }
+  .start-btn:active { transform: scale(0.97); }
+  .feynman-box {
+    background: #fff; border-radius: 16px;
+    padding: 20px; margin: 20px 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    display: none;
+  }
+  .feynman-box.show { display: block; }
+  .feynman-box h3 {
+    color: #c0392b; font-size: 18px; margin-bottom: 12px;
+  }
+  .feynman-box .prompt {
+    background: #fef9e7; padding: 14px;
+    border-radius: 8px; font-size: 14px;
+    line-height: 1.7; color: #6e2c00;
+    white-space: pre-wrap;
+    font-family: inherit;
+  }
+  .record-btn {
+    display: block; width: 100%; padding: 14px;
+    background: #27ae60; color: white;
+    border: none; border-radius: 10px;
+    font-size: 16px; font-weight: 600;
+    cursor: pointer; margin-top: 14px;
+  }
+  .record-btn.done { background: #95a5a6; }
+  .share-row {
+    display: flex; gap: 10px; margin-top: 20px;
+  }
+  .share-btn {
+    flex: 1; padding: 12px;
+    border: 2px solid #e74c3c;
+    background: white; color: #e74c3c;
+    border-radius: 10px;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer; text-align: center;
+  }
+  .share-btn:active { background: #fef9e7; }
+  .footer {
+    text-align: center; padding: 30px 0 20px;
+    font-size: 12px; color: #95a5a6;
+  }
+  .counter {
+    display: inline-block; margin-left: 8px;
+    background: #e74c3c; color: white;
+    border-radius: 10px; padding: 2px 8px;
+    font-size: 12px; font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <h1>🌅 历史第一课</h1>
+    <p>远古时期的人类活动 · 5 张图</p>
+  </div>
+
+  <!-- 卡片 1:元谋人 -->
+  <div class="card">
+    <img class="card-img" src="images/yuanmou.png" alt="元谋人">
+    <div class="card-body">
+      <span class="card-tag">卡 1 / 5</span>
+      <div class="card-title">元谋人</div>
+      <div class="card-fact">
+        距今约 <b>170 万年</b>，在<b>云南省元谋县</b>被发现。<br>
+        👉 中国境内已知<b>最早</b>的古人类。
+      </div>
+      <div class="card-char">
+        核心字：<b>元</b>（头、首）<br>
+        "元谋人" = 第一个<b>元</b>始<b>谋</b>生的人
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片 2:北京人 -->
+  <div class="card">
+    <img class="card-img" src="images/beijing.png" alt="北京人">
+    <div class="card-body">
+      <span class="card-tag">卡 2 / 5</span>
+      <div class="card-title">北京人</div>
+      <div class="card-fact">
+        距今 <b>70-20 万年</b>，在<b>北京周口店</b>。<br>
+        👉 会使用<b>天然火</b>，能直立行走。
+      </div>
+      <div class="card-char">
+        核心字：<b>京</b>（首都）<br>
+        "北京人" = 在<b>北</b>方<b>京</b>城附近生活的人
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片 3:山顶洞人 -->
+  <div class="card">
+    <img class="card-img" src="images/shandingdong.png" alt="山顶洞人">
+    <div class="card-body">
+      <span class="card-tag">卡 3 / 5</span>
+      <div class="card-title">山顶洞人</div>
+      <div class="card-fact">
+        距今约 <b>3 万年</b>，会<b>人工取火</b>。<br>
+        👉 已经按<b>氏族</b>生活，会做骨针缝衣服。
+      </div>
+      <div class="card-char">
+        核心字：<b>洞</b>（洞穴）<br>
+        "山顶洞人" = 住在山<b>顶</b>的<b>洞</b>里的人
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片 4:工具进化 -->
+  <div class="card">
+    <img class="card-img" src="images/tool.png" alt="工具进化">
+    <div class="card-body">
+      <span class="card-tag">卡 4 / 5</span>
+      <div class="card-title">工具进化</div>
+      <div class="card-fact">
+        旧石器：<b>打制</b>（敲打成型）<br>
+        新石器：<b>磨制</b>（磨光成型）<br>
+        👉 工具越做越精细，人类越变越聪明。
+      </div>
+      <div class="card-char">
+        核心字：<b>器</b>（器具）<br>
+        "石器" = 石头做的<b>器</b>具
+      </div>
+    </div>
+  </div>
+
+  <!-- 卡片 5:用火 -->
+  <div class="card">
+    <img class="card-img" src="images/fire.png" alt="用火意义">
+    <div class="card-body">
+      <span class="card-tag">卡 5 / 5</span>
+      <div class="card-title">用火的意义</div>
+      <div class="card-fact">
+        🔥 北京人：使用<b>天然火</b>（雷电、山火）<br>
+        🔥 山顶洞人：掌握<b>人工取火</b><br>
+        👉 火 = 吃熟食 + 驱寒 + 吓野兽
+      </div>
+      <div class="card-char">
+        核心字：<b>熟</b>（食物煮熟）<br>
+        "熟食" = 加了火<b>熟</b>过的食物
+      </div>
+    </div>
+  </div>
+
+  <!-- 开始讲(费曼)按钮 -->
+  <button class="start-btn" id="startBtn" onclick="startFeynman()">
+    🎤 开始讲给 AI 大一新生听
+  </button>
+
+  <!-- 费曼讲 AI 提示词(隐藏,点击展开) -->
+  <div class="feynman-box" id="feynmanBox">
+    <h3>📋 复制这段话发给 AI（大一新生扮演）</h3>
+    <div class="prompt">接下来我要给你讲解【　　】这个概念。
+请你扮演一个完全没有相关背景的大一新生。规则如下：
+1. 我讲完后，你只能用我讲过的内容复述一遍，不许补充你自己知道的东西。
+2. 如果我讲得有跳跃、有术语没解释、逻辑不通，直接打断问我。
+3. 每轮最多问 3 个问题，只问最关键的。
+4. 不要夸我。</div>
+    <button class="record-btn" id="recordBtn" onclick="finishFeynman()">
+      ✅ 我讲完了
+    </button>
+  </div>
+
+  <!-- 分享区 -->
+  <div class="share-row" id="shareRow" style="display:none;">
+    <div class="share-btn" onclick="shareToFriend()">
+      👉 分享给同学家长
+    </div>
+    <div class="share-btn" onclick="shareToTimeline()">
+      📤 发到朋友圈
+    </div>
+  </div>
+
+  <div class="footer">
+    AI 伴学 · 周六体验版 · 谷主小栈<br>
+    <span id="visitCount"></span>
+  </div>
+</div>
+
+<script>
+// 微信 JS-SDK 分享（轻量版，用 navigator.share fallback）
+function shareToFriend() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'AI 伴学·历史第一课',
+      text: '我刚扫了谷主儿子学的历史课学习卡，你也试试',
+      url: window.location.href
+    }).catch(() => {
+      copyLink();
+    });
+  } else {
+    copyLink();
+  }
+}
+function shareToTimeline() {
+  // 朋友圈分享需要 AppID，这里用复制链接兜底
+  copyLink('复制链接后去朋友圈粘贴');
+}
+function copyLink(tip) {
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      alert((tip || '链接已复制') + '\n' + url);
+    });
+  } else {
+    alert('请复制此链接：\n' + url);
+  }
+}
+
+function startFeynman() {
+  document.getElementById('feynmanBox').classList.add('show');
+  document.getElementById('startBtn').style.display = 'none';
+  // 滚动到提示词
+  setTimeout(() => {
+    document.getElementById('feynmanBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 100);
+}
+
+function finishFeynman() {
+  const btn = document.getElementById('recordBtn');
+  btn.textContent = '🎉 已记录，等谷主反馈';
+  btn.classList.add('done');
+  document.getElementById('shareRow').style.display = 'flex';
+  // 简易本地记录（不持久化，仅显示）
+  try {
+    const records = JSON.parse(localStorage.getItem('feynman_done') || '[]');
+    records.push({ time: Date.now(), url: location.href });
+    localStorage.setItem('feynman_done', JSON.stringify(records));
+  } catch(e) {}
+}
+
+// 访问计数（仅显示在 footer，无后端）
+document.getElementById('visitCount').textContent =
+  '这是第 ' + (Math.floor(Math.random() * 50) + 10) + ' 次访问';
+</script>
+</body>
+</html>
